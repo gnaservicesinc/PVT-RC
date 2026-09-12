@@ -23,27 +23,26 @@ pnpm build
 
 ## Pair with PVT
 
-PVT needs the desktop Remotes integration and optional `pvt-remote` Python worker.
-From the PVT checkout, `python3 scripts/install-remote-worker.py` installs that
-worker in a private environment without enabling networking.
+PVT packages include the transport. There is no separate runtime setup.
 
-1. Open **Hosts & settings** and export `.pvtremote`.
-2. In PVT's **Settings → Networking & Remotes**, import the remote profile.
-3. Enable networking, choose the active control remote if applicable, and Apply.
-4. Export `.pvthost` from PVT, import it here, select the host, and Connect.
+1. In **Hosts & settings**, save `.pvtremote`.
+2. Import it in PVT's **Settings → Networking & Remotes**.
+3. Save `.pvthost` from PVT and open it here. Connection starts automatically.
 
-Control parameters come from PVT’s shared Live target registry. Edits use its normal validation, undo/redo and save path. Only the controller selected in PVT can edit; other controllers can inspect state. Search and section filtering expose all supported scalar controls.
+Keep PVT running and the remote tab open. Pairings and the selected PVT survive
+restarts. Temporary interruptions reconnect automatically. Disconnect pauses
+connections until Connect is selected again.
 
 The host selector supports multiple profiles. Editing profiles changes labels
-and endpoints without replacing pinned keys. Profile removal is immediate.
+without replacing pinned keys. Profile removal is immediate.
 Browser sync is optional, inspectable and clearable. Only public host profiles
 and your sync preference are synced; private remote keys remain local.
 Reinstallation restores previously synced hosts but creates a new remote identity,
 which must be imported in PVT again. Disabling sync keeps profiles local.
 
-LAN connections use the exported host's `.local`/IPv4 endpoints. Internet
-connections need a deployed PVT signaling relay and suitable host STUN/TURN
-configuration. No signaling service is assumed or automatically provisioned.
+Same-machine connections work without an external network. Local-network
+connections use automatic discovery from the saved pairing. PVT and its remotes are designed to share a network; no hosted service or
+manual network configuration is required.
 
 ## Shared code and verification
 
