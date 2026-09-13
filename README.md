@@ -27,14 +27,17 @@ PVT packages include the transport. There is no separate runtime setup.
 
 1. In **Hosts & settings**, save `.pvtremote`.
 2. Import it in PVT's **Settings → Networking & Remotes**.
-3. Save `.pvthost` from PVT and open it here. Connection starts automatically.
+3. Save `.pvthost` from PVT and open it here, then choose **Save changes**. Connection starts automatically.
 
 Keep PVT running and the remote tab open. Pairings and the selected PVT survive
 restarts. Temporary interruptions reconnect automatically. Disconnect pauses
 connections until Connect is selected again.
 
 The host selector supports multiple profiles. Editing profiles changes labels
-without replacing pinned keys. Profile removal is immediate.
+without replacing pinned keys. Names, removals and sync preferences are drafts until
+**Save changes**. Done, Escape and clicking outside settings prompt to save or
+discard pending changes; closing or reloading the tab warns while changes remain.
+Saving errors keep the draft available to retry.
 Browser sync is optional, inspectable and clearable. Only public host profiles
 and your sync preference are synced; private remote keys remain local.
 Reinstallation restores previously synced hosts but creates a new remote identity,
@@ -43,6 +46,18 @@ which must be imported in PVT again. Disabling sync keeps profiles local.
 Same-machine connections work without an external network. Local-network
 connections use automatic discovery from the saved pairing. PVT and its remotes are designed to share a network; no hosted service or
 manual network configuration is required.
+
+## Version 0.2.0 interface
+
+Hosts & settings opens as a focused dialog over the workspace. Pairing steps,
+named hosts and browser sync share one Save changes action. The footer displays
+the installed extension version.
+
+Browse **Project & layers → section → wave, swing or effect**. Layer and item
+identity comes from the native stable paths, so duplicate names stay separate.
+Collections and search results are paginated; every control remains reachable.
+Search spans the whole project, and a result's location opens its normal editor.
+Parameter edits, validation, Undo and Redo use the native remote command path.
 
 ## Shared code and verification
 
